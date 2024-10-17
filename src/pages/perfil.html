@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../output.css" rel="stylesheet">
+</head>
+<!-- Plantilla detallada -->
+
+<body class="bg-gray-100">
+    <!-- bg-color-intensidad Color del background -->
+    <nav class="bg-gray-800 rounded-lg m-4 p-4">
+        <!-- m-# espaciado alrededor del componente -->
+        <!-- p-# ancho del componente -->
+        <div class="mx-auto max-w-7xl px-2">
+            <!-- mx-auto cuando se sobre pasa el tamaño se ajusta  -->
+            <!-- max-w-7xl mantiene los componentes centrados cuando crece hasta el tamaño marcado  -->
+            <!-- px-# crea un espacio a los laterales -->
+            <div class="flex items-center justify-between">
+                <!-- items-center situa a la mitad del ancho -->
+                <!-- justify-between da el espacio en la mitad en todo el tamaño del componente -->
+                <div class="flex items-center">
+                    <img class="h-8" src="https://img.icons8.com/ios-filled/50/FFFFFF/joystick.png" alt="Logo">
+                    <!-- h-# control del tamaño -->
+                    <div class="hidden md:block ml-10 space-x-4">
+                        <!-- hidden oculto -->
+                        <!-- md:block para que se quede fijo ignorando el hidden en el tamaño indicado -->
+                        <!-- ml-# espacio al lateral izquierdo -->
+                        <!-- space-x-4 espacio entre componentes dentro del div -->
+                        <a href="../index.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">Inicio</a>
+                        <a href="../pages/consolas.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">Consolas</a>
+                        <a href="../pages/juegos.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">Juegos</a>
+                        <a href="../pages/novedades.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium">Novedades</a>
+                        <!-- text-color-(intensidad opcional) para asignar un color -->
+                        <!-- hoover: para asignar propiedades al poner clic encima -->
+                        <!-- py-# espacio encima y debajo -->
+                        <!-- rounded-(sm small, md mediano, lg grande, xl y 2xl) -->
+                    </div>
+                </div>
+                <div class="md:block">
+                    <div class="flex items-center space-x-4">
+                        <a href="../pages/perfil.html"
+                            class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium hidden md:block">Sobre
+                            mí</a>
+                        <!-- font-medium tamaño de la letra -->
+                        <a href="https://github.com/dsnaranda"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium">
+                            <!-- img en svg -->
+                            <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32px"
+                                height="32px" fill-rule="evenodd">
+                                <path fill-rule="evenodd"
+                                    d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col md:flex-row text-gray-300 text-sm font-medium bg-gray-500 m-4 rounded-lg">
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex justify-center items-center">
+            <img src="../img/nintendo.jpg" alt="Imagen del Producto" class="w-72 h-48 object-cover rounded-lg">
+        </div>
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex-grow">
+            <h2 class="text-xl font-bold">Nintendo Switch – OLED Model - The Legend of Zelda: Tears of the Kingdom Edition</h2>
+            <p class="text-lg font-semibold text-yellow-400">Precio: $399.00</p>
+            <p class="mt-2">Pantalla OLED de 7 pulgadas: disfruta de colores vivos y un contraste nítido con una
+                pantalla que hace que los colores resalten.</p>
+            <p class="mt-2">Puerto LAN con cable: utiliza el puerto LAN del dock cuando juegas en modo TV, para
+                conectarte a Internet por cable.</p>
+            <p class="mt-2">Almacenamiento interno de 64 GB: guarda juegos en tu sistema, con los 64 GB de
+                almacenamiento interno.</p>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex flex-col justify-center items-center">
+            <h2 class="text-xl font-bold whitespace-nowrap">RESERVAR AHORA</h2>
+            <p class="text-lg font-semibold p-4 text-yellow-400 whitespace-nowrap">Descuento: 15%</p>
+            <button
+                class="bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-500 transition duration-200 w-full">
+                Comprar
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row text-gray-300 text-sm font-medium bg-gray-500 m-4 rounded-lg">
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex justify-center items-center">
+            <img src="../img/mario.jpg" alt="Imagen del Producto" class="w-72 h-48 object-cover rounded-lg">
+        </div>
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex-grow">
+            <h2 class="text-xl font-bold">Nintendo Switch - OLED Model: Mario Red Edition</h2>
+            <p class="text-lg font-semibold text-yellow-400">Precio: $389.99</p>
+            <p class="mt-2">Pantalla OLED de 7 pulgadas: disfruta de colores vivos y un contraste nítido con una
+                pantalla que hace que los colores resalten.</p>
+            <p class="mt-2">Puerto LAN con cable: utiliza el puerto LAN del dock cuando juegas en modo TV, para
+                conectarte a Internet por cable.</p>
+            <p class="mt-2">Almacenamiento interno de 64 GB: guarda juegos en tu sistema, con los 64 GB de
+                almacenamiento interno.</p>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg m-4 p-4 flex flex-col justify-center items-center">
+            <h2 class="text-xl font-bold whitespace-nowrap">RESERVAR AHORA</h2>
+            <p class="text-lg font-semibold p-4 text-yellow-400 whitespace-nowrap">Descuento: 20%</p>
+            <button
+                class="bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-500 transition duration-200 w-full">
+                Comprar
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 rounded-lg m-4 p-4 flex items-center justify-center h-16">
+        <!-- justify-center para centralo al medio -->
+        <div class="text-gray-300 text-sm font-medium">
+            Universidad Técnica de Machala 2022-2
+        </div>
+    </footer>
+
+</body>
+
+</html>
