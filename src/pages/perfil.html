@@ -114,9 +114,10 @@
             if (userData) {
                 document.getElementById('login-container').classList.add('hidden');
                 document.getElementById('user-profile').classList.remove('hidden');
-                document.getElementById('user-name').textContent = 'Derik Steven Aranda Neira'|| 'Nombre no disponible'; // Cambia 'name' por el campo adecuado en tu respuesta
+                document.getElementById('user-name').textContent = 'Derik StevenAranda Neira'|| 'Nombre no disponible'; // Cambia 'name' por el campo adecuado en tu respuesta
                 document.getElementById('user-bio').textContent = userData.bio || 'Biografía no disponible'; // Cambia 'bio' por el campo adecuado en tu respuesta
             }
+            window.onload = mostrarPerfil;
         }
 
         // Función para cerrar sesión y borrar el Local Storage

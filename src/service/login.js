@@ -21,9 +21,11 @@ export async function login() {
 
         const data = await response.json();
         console.log('Login exitoso:', data);
-        
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
         // Guardar datos en Local Storage
-        localStorage.setItem('userData', JSON.stringify(data)); 
+        localStorage.setItem('userData', JSON.stringify(data)); // Cambia 'userData' por la clave que prefieras
 
     } catch (error) {
         console.error(error);
