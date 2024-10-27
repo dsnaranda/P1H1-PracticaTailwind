@@ -80,7 +80,6 @@ const updateStock = async (products) => {
     }
 };
 
-getUsuarios();
 export { getUsuarios, loginUsuario, getProductos, updateStock };
 
 

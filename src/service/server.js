@@ -4,7 +4,7 @@ import { getUsuarios, loginUsuario, getProductos, updateStock } from "./dbMongo.
 import cors from "cors";
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware para permitir CORS
 app.use(cors());
@@ -66,7 +66,6 @@ app.post("/api/updateStock", async (req, res) => {
 
 
 // Inicia el servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-
