@@ -1,15 +1,25 @@
-import { getConenection } from "./dbConex.js"; 
+import { getConenection, run } from "./dbConex.js";
 
 const getUsuarios = async () => {
+    let client; // Definimos client para controlar la conexión
     try {
-        const database = await getConenection();
-        const usuarios = await database.collection("usuarios").find().toArray(); // Recupera todos los documentos de la colección
-        return usuarios; // Retorna toda la información de cada usuario
+        client = await getConenection(); // Obtiene el cliente
+        const database = client.db("T1H1DataBase_Tienda"); // Accede a la base de datos
+        const usuarios = await database.collection("usuarios").find().toArray();
+        console.log(`Total de documentos en 'usuarios': ${usuarios.length}`);
+        console.log(`Contenido de usuarios: ${JSON.stringify(usuarios, null, 2)}`); // Imprimir usuarios en formato JSON
+        
+        return usuarios; // Si deseas devolverlo también
     } catch (error) {
         console.error("Error al obtener los usuarios:", error);
-        throw error; // Lanza el error para ser capturado en la ruta
+        throw error; // Lanzar error para manejo externo
+    } finally {
+        if (client) {
+            await client.close(); // Cerrar conexión
+        }
     }
 };
+
 
 const getProductos = async () => {
     try {
@@ -48,10 +58,10 @@ const updateStock = async (products) => {
             const { nombre, cantidad } = product; // Desestructura nombre y cantidad del producto
             const currentProduct = await database.collection("productos").findOne({ nombre });
             if (!currentProduct) {
-                return false; 
+                return false;
             }
             if (currentProduct.cantidad < cantidad) {
-                return false; 
+                return false;
             }
             // Actualiza el stock
             const result = await database.collection("productos").updateOne(
@@ -70,8 +80,7 @@ const updateStock = async (products) => {
     }
 };
 
-
-
-export { getUsuarios, loginUsuario , getProductos, updateStock };
+getUsuarios();
+export { getUsuarios, loginUsuario, getProductos, updateStock };
 
 
