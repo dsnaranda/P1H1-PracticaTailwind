@@ -11,6 +11,18 @@ const getUsuarios = async () => {
     }
 };
 
+const getProductos = async () => {
+    try {
+        const database = await getConenection(); // Asegúrate de que esta función se conecta a tu base de datos
+        const productos = await database.collection("productos").find().toArray(); // Recupera todos los documentos de la colección
+        return productos; // Retorna toda la información de cada producto
+    } catch (error) {
+        console.error("Error al obtener los productos:", error);
+        throw error; // Lanza el error para ser capturado en la ruta
+    }
+};
+
+
 const loginUsuario = async (email, password) => {
     try {
         const database = await getConenection();
@@ -29,6 +41,6 @@ const loginUsuario = async (email, password) => {
 };
 
 
-export { getUsuarios, loginUsuario};
+export { getUsuarios, loginUsuario , getProductos};
 
 

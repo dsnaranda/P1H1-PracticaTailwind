@@ -1,6 +1,6 @@
 // src/app.js
 import express from "express";
-import { getUsuarios, loginUsuario } from "./dbMongo.mjs"; // Asegúrate de que la ruta es correcta
+import { getUsuarios, loginUsuario , getProductos } from "./dbMongo.mjs"; // Asegúrate de que la ruta es correcta
 import cors from "cors";
 
 const app = express();
@@ -19,6 +19,16 @@ app.get("/api/usuarios", async (req, res) => {
         res.status(500).json({ error: "Error al obtener los usuarios" });
     }
 });
+
+app.get("/api/productos", async (req, res) => {
+    try {
+        const productos = await getProductos(); // Llama a la función que obtiene los productos
+        res.status(200).json(productos); // Envía todos los datos en formato JSON
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener los productos" }); // Responde con un error si ocurre
+    }
+});
+
 
 app.post("/api/login", async (req, res) => {
     const { email, password } = req.body;
