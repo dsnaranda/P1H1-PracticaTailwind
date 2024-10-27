@@ -41,6 +41,37 @@ const loginUsuario = async (email, password) => {
 };
 
 
-export { getUsuarios, loginUsuario , getProductos};
+const updateStock = async (products) => {
+    try {
+        const database = await getConenection();
+        const results = await Promise.all(products.map(async (product) => {
+            const { nombre, cantidad } = product; // Desestructura nombre y cantidad del producto
+            const currentProduct = await database.collection("productos").findOne({ nombre });
+            if (!currentProduct) {
+                return false; 
+            }
+            if (currentProduct.cantidad < cantidad) {
+                return false; 
+            }
+            // Actualiza el stock
+            const result = await database.collection("productos").updateOne(
+                { nombre },
+                { $inc: { cantidad: -cantidad } }
+            );
+
+            return result.modifiedCount > 0; // Devuelve verdadero si se actualizó correctamente
+        }));
+
+        // Retorna verdadero solo si todos los productos se actualizaron correctamente
+        return results.every(result => result);
+    } catch (error) {
+        console.error("Error al actualizar el stock:", error);
+        throw error; // Propaga el error
+    }
+};
+
+
+
+export { getUsuarios, loginUsuario , getProductos, updateStock };
 
 

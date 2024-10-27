@@ -1,6 +1,6 @@
 // src/app.js
 import express from "express";
-import { getUsuarios, loginUsuario , getProductos } from "./dbMongo.mjs"; // Asegúrate de que la ruta es correcta
+import { getUsuarios, loginUsuario, getProductos, updateStock } from "./dbMongo.mjs"; // Asegúrate de que la ruta es correcta
 import cors from "cors";
 
 const app = express();
@@ -42,6 +42,24 @@ app.post("/api/login", async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ error: "Error en el login", detalle: error.message }); // Incluir detalles del error
+    }
+});
+
+app.post("/api/updateStock", async (req, res) => {
+    const products = req.body.products; // Cambia a obtener el arreglo de productos
+    if (!Array.isArray(products)) {
+        return res.status(400).json({ error: "Se esperaba un arreglo de productos" });
+    }
+
+    try {
+        const updated = await updateStock(products); // Pasa el arreglo de productos a la función
+        if (updated) {
+            res.status(200).json({ message: "Stock actualizado correctamente" });
+        } else {
+            res.status(404).json({ error: "Uno o más productos no se encontraron o stock insuficiente" });
+        }
+    } catch (error) {
+        res.status(500).json({ error: "Error al actualizar el stock", detalle: error.message });
     }
 });
 
