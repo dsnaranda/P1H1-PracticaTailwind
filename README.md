@@ -3,7 +3,9 @@ Realizado con el objetivo de iniciar un aprendizaje sobre Tailwind css como alte
 HomePage: https://dsnaranda.github.io/P1H1-PracticaTailwind/src/index.html
 
 
-Nombre: T1H1DataBase_Tienda
+-Nombre: T1H1DataBase_Tienda
+
+
 Estructura de las colecciones:
 - productos
   {"nombre": "Mario Party Superstars", "precio": 39.99, "img": "../img/game4.jpg", "cantidad": 11 }
